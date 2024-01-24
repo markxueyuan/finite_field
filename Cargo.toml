@@ -1,0 +1,9 @@
+[package]
+name = "finite_field"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mod_exp = "1.0.1"
+num = "0.4.1"
+primes = "0.3.0"
