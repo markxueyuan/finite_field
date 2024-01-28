@@ -1,7 +1,13 @@
 use finite_field::FieldElement;
 use primes::is_prime;
+use finite_field::FieldElementBig;
+use crypto_bigint::U256;
 
 fn main() {
+    /////////////////////////////////////
+    ////// of primitive integers
+    ////////////////////////////////////
+
     // closed set
     let a: FieldElement<i8> = FieldElement::new(14, 17);
     let b: FieldElement<i8> = FieldElement::new(9, 17);
@@ -45,5 +51,34 @@ fn main() {
     let a_inverse = one / a;
     assert_eq!(a_inverse, FieldElement::new(8926, 10007));
     assert_eq!(a * a_inverse, one);
+
+    /////////////////////////////////////
+    ////// of crypto-big integers
+    ////////////////////////////////////
+
+    // closed set
+
+    let a = FieldElementBig::new(U256::from(14u8), U256::from(17u8));
+    let b = FieldElementBig::new(U256::from(9u8), U256::from(17u8));
+
+    let c = a + b;
+    let d = a * b;
+
+    assert_eq!(c, FieldElementBig::new(U256::from(6u8), U256::from(17u8)));
+    assert_eq!(d, FieldElementBig::new(U256::from(7u8), U256::from(17u8)));    
+
+    ///////////////////// To do
+
+    // additive identity
+    
+
+    // multiplicative identity
+
+
+    // additive inverse
+
+
+    // multiplicative inverse
+
 
 }
